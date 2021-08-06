@@ -96,6 +96,7 @@ func SendPostRequest(metrics string) {
 	resp, err := client.Do(request)
 	if err != nil {
 		fmt.Printf("Error in http do %g\n", err)
+		return
 	}
 	//fmt.Printf("Response: %g\n", resp)
 	fmt.Printf("Sent!  Response: %d\n", resp.StatusCode)
