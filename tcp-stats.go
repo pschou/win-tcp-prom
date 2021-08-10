@@ -18,6 +18,7 @@ import (
 var version = ""
 var hostname = ""
 var uri = ""
+var client = &http.Client{}
 
 func main() {
 	fmt.Printf("Prometheus TCP Metrics Scraper, Written by Paul Schou  Source code: github.com/pschou/win-tcp-prom (version: %s)\n", version)
@@ -92,7 +93,6 @@ func SendPostRequest(metrics string) {
 		fmt.Printf("Error when making http request %g\n", err)
 		return
 	}
-	client := &http.Client{}
 	resp, err := client.Do(request)
 	if err != nil {
 		fmt.Printf("Error in http do %g\n", err)
