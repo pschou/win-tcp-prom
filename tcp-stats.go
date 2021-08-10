@@ -98,6 +98,7 @@ func SendPostRequest(metrics string) {
 		fmt.Printf("Error in http do %g\n", err)
 		return
 	}
+	client.CloseIdleConnections()
 	//fmt.Printf("Response: %g\n", resp)
 	fmt.Printf("Sent!  Response: %d\n", resp.StatusCode)
 }
